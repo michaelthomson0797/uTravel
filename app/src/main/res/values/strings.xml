@@ -3,6 +3,7 @@
     <string name="budgetPrompt">Enter a Budget: </string>
     <string name="Submit">Submit</string>
     <string name="distancePrompt">Distance: </string>
+    <string name="stylePrompt">Trip Style: </string>
     <string-array name="tripTypes">
         <item>Sight Seeing</item>
         <item>Attractions</item>
