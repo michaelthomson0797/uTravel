@@ -19,6 +19,9 @@
         <activity android:name=".Results"
             android:parentActivityName=".Form"
             android:label="Search Results"/>
+        <activity android:name=".Load"
+            android:parentActivityName=".Form"
+            android:label="Load"/>
 
     </application>
 
