@@ -16,7 +16,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Form" />
-        <activity android:name=".Results" android:parentActivityName=".Form"/>
+        <activity android:name=".Results"
+            android:parentActivityName=".Form"
+            android:label="Search Results"/>
 
     </application>
 

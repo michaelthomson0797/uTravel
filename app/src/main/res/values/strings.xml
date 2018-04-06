@@ -4,6 +4,7 @@
     <string name="Submit">Submit</string>
     <string name="distancePrompt">Distance: </string>
     <string name="stylePrompt">Trip Style: </string>
+    <string name="loadButton">Load Trip</string>
     <string-array name="tripTypes">
         <item>Sight Seeing</item>
         <item>Attractions</item>
