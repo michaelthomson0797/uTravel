@@ -6,10 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class Form extends AppCompatActivity {
+
+    private EditText budgetEditText;
+    private SeekBar distanceSeekbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,11 +21,13 @@ public class Form extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
 
-        final SeekBar distanceSeekbar = findViewById(R.id.distanceSeekBar);
+        distanceSeekbar = findViewById(R.id.distanceSeekBar);
         final TextView distanceIndicator = findViewById(R.id.distanceIndicator);
 
         final Button submitButton = findViewById(R.id.submitButton);
         final Button loadButton = findViewById(R.id.loadButton);
+
+        budgetEditText = findViewById(R.id.budgetEditText);
 
         distanceSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -55,5 +61,19 @@ public class Form extends AppCompatActivity {
                 Form.this.startActivity(loadIntent);
             }
         });
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("budget", budgetEditText.getText().toString());
+        outState.putInt("distance", distanceSeekbar.getProgress());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        budgetEditText.setText(savedInstanceState.getInt("budget"));
+        distanceSeekbar.setProgress(savedInstanceState.getInt("distance"));
     }
 }
