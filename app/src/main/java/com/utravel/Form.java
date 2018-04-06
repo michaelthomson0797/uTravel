@@ -21,6 +21,7 @@ public class Form extends AppCompatActivity {
         final TextView distanceIndicator = findViewById(R.id.distanceIndicator);
 
         final Button submitButton = findViewById(R.id.submitButton);
+        final Button loadButton = findViewById(R.id.loadButton);
 
         distanceSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -47,5 +48,12 @@ public class Form extends AppCompatActivity {
             }
         });
 
+        loadButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent loadIntent = new Intent(Form.this, Load.class);
+                Form.this.startActivity(loadIntent);
+            }
+        });
     }
 }
