@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 
 
-
-public class Splash extends Activity {
+public class Splash extends AppCompatActivity {
     final int SPLASH_DELAY = 1000;
 
     @Override
