@@ -8,6 +8,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 
+/**
+ * This activity simply displays the logo to the user before passing control to the Form activity
+ */
 public class Splash extends AppCompatActivity {
     final int SPLASH_DELAY = 1000;
 
