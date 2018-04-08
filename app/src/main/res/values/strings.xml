@@ -10,4 +10,21 @@
         <item>Attractions</item>
         <item>Resort</item>
     </string-array>
+    <string name="resultLocationPrompt">Location: </string>
+
+    <string name="flight">Flight</string>
+    <string name="hotel">Hotel</string>
+
+
+    <string name="locationDefault">locationName</string>
+
+    <string name="airportCodeDefault">AAA - BBB</string>
+    <string name="flightTimeDefault">00:00 AM - 00:00 PM</string>
+    <string name="flightDurationDefault">00h 00m</string>
+    <string name="layoverDefault">Nonstop</string>
+    <string name="priceDefault">$9999</string>
+
+    <string name="hotelNameDefault">hotelName</string>
+    <string name="hotelScoreDefault">0/0</string>
+    <string name="hotelLocationDefault">hotelAdress</string>
 </resources>

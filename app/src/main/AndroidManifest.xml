@@ -9,6 +9,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD9QqdUM2ma9fiK3BRPDt4khL4Nz1W04S4"/>
         <activity android:name=".Splash"
             android:label="">
             <intent-filter>
