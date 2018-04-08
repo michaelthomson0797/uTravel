@@ -11,15 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This activity will display the result of the search using the user's inputs.
- * It is still undecided if we should use a list of results or just one result
+ * This activity will display the returned trip of the search using the user's inputs.
  */
-public class Results extends AppCompatActivity {
+public class Details extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.results);
-        final ListView resultsListView = findViewById(R.id.resultsListView);
+        setContentView(R.layout.details);
 
         //make back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

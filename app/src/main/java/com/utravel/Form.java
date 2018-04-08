@@ -1,6 +1,5 @@
 package com.utravel;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +9,6 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
 /**
@@ -48,15 +46,15 @@ public class Form extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {/*nothing...*/}
         });
 
-        //get results and change activity
+        //get trip detail and change activity
         //TODO: Find out if we want one result or two
         submitButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                //TODO: Get Trips from Experts and send to Results using putExtras
+                //TODO: Get Trip from Experts and send to Details using putExtras
 
-                Intent resultsIntent = new Intent(Form.this, Results.class);
+                Intent resultsIntent = new Intent(Form.this, Details.class);
                 Form.this.startActivity(resultsIntent);
             }
         });
