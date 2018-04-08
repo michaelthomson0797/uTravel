@@ -49,7 +49,7 @@ public class Details extends AppCompatActivity implements OnMapReadyCallback{
         mapFragment.getMapAsync(this);
 
         // TODO: Get the trip info and update detail window
-        address = "Mcmaster University";//PLACEHOLDER
+        address = "McMaster University";//PLACEHOLDER
 
         //pull address of hotel from textView
         hotelAddress.setText(address);

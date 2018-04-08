@@ -9,6 +9,10 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.google.android.gms.location.places.AutocompleteFilter;
+import com.google.android.gms.location.places.ui.PlaceAutocomplete;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
+
 import java.util.Locale;
 
 /**
@@ -18,7 +22,10 @@ import java.util.Locale;
 public class Form extends AppCompatActivity {
 
     private EditText budgetEditText;
+    private EditText departureDateEditText;
+    private EditText tripDurationEditText;
     private SeekBar distanceSeekbar;
+    private PlaceAutocompleteFragment autocompleteFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +33,16 @@ public class Form extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
 
-        //Get instantiate UI elements
+        //instantiate UI elements
+        autocompleteFragment = (PlaceAutocompleteFragment) getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
         distanceSeekbar = findViewById(R.id.distanceSeekBar);
         final TextView distanceIndicator = findViewById(R.id.distanceIndicator);
         final Button submitButton = findViewById(R.id.submitButton);
         final Button loadButton = findViewById(R.id.loadButton);
         budgetEditText = findViewById(R.id.budgetEditText);
+        departureDateEditText = findViewById(R.id.departureDate);
+        tripDurationEditText = findViewById(R.id.tripDuration);
+
 
         //Set a listener to update distance value to user
         distanceSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {

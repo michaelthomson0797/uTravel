@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">uTravel</string>
+    <string name="departurePrompt">Departure Location: </string>
+    <string name="departureDatePrompt">Departure Date: </string>
+    <string name="departureDateHint">DD/MM/YYYY</string>
+    <string name="tripDurationPrompt">Trip Duration: </string>
     <string name="budgetPrompt">Enter a Budget: </string>
     <string name="Submit">Submit</string>
     <string name="distancePrompt">Distance: </string>
