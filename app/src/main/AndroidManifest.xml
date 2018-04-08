@@ -14,7 +14,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD9QqdUM2ma9fiK3BRPDt4khL4Nz1W04S4"/>
         <activity android:name=".Splash"
-            android:label="">
+            android:label="uTravel">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
