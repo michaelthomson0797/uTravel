@@ -4,6 +4,8 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -82,5 +84,22 @@ public class Details extends AppCompatActivity implements OnMapReadyCallback{
             e.printStackTrace();
         }
         return p1;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.detail_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.saveButton) {
+            //SAVE THE THINGS
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
