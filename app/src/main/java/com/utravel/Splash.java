@@ -30,4 +30,5 @@ public class Splash extends AppCompatActivity {
             }
         }, SPLASH_DELAY);
     }
+
 }
