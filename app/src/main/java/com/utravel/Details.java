@@ -22,6 +22,7 @@ import java.util.List;
  */
 public class Details extends AppCompatActivity implements OnMapReadyCallback{
 
+    //TODO: instantiate variables to hold TextView items?
     private String address;
 
     @Override
@@ -33,16 +34,16 @@ public class Details extends AppCompatActivity implements OnMapReadyCallback{
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //instantiate info textViews
-        final TextView flightCodes = findViewById(R.id.flightCodes);
-        final TextView flightTimeCodes = findViewById(R.id.flightTimeCodes);
-        final TextView flightAirline = findViewById(R.id.flightAirline);
-        final TextView flightLayovers = findViewById(R.id.flightLayovers);
-        final TextView flightPrice = findViewById(R.id.flightPrice);
+        final TextView flightCodesTextView = findViewById(R.id.flightCodes);
+        final TextView flightTimeCodesTextView = findViewById(R.id.flightTimeCodes);
+        final TextView flightAirlineTextView = findViewById(R.id.flightAirline);
+        final TextView flightLayoversTextView = findViewById(R.id.flightLayovers);
+        final TextView flightPriceTextView = findViewById(R.id.flightPrice);
 
-        final TextView hotelName = findViewById(R.id.hotelName);
-        final TextView hotelScore = findViewById(R.id.hotelScore);
-        final TextView hotelPrice = findViewById(R.id.hotelPrice);
-        final TextView hotelAddress = findViewById(R.id.hotelAddress);
+        final TextView hotelNameTextView = findViewById(R.id.hotelName);
+        final TextView hotelScoreTextView = findViewById(R.id.hotelScore);
+        final TextView hotelPriceTextView = findViewById(R.id.hotelPrice);
+        final TextView hotelAddressTextView = findViewById(R.id.hotelAddress);
 
         //instantiate map
         final MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
@@ -52,7 +53,7 @@ public class Details extends AppCompatActivity implements OnMapReadyCallback{
         address = "McMaster University";//PLACEHOLDER
 
         //pull address of hotel from textView
-        hotelAddress.setText(address);
+        hotelAddressTextView.setText(address);
 
     }
 
