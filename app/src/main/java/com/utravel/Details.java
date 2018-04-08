@@ -35,7 +35,7 @@ public class Details extends AppCompatActivity implements OnMapReadyCallback{
         //instantiate info textViews
         final TextView flightCodes = findViewById(R.id.flightCodes);
         final TextView flightTimeCodes = findViewById(R.id.flightTimeCodes);
-        final TextView flightDuration = findViewById(R.id.flightDuration);
+        final TextView flightAirline = findViewById(R.id.flightDuration);
         final TextView flightLayovers = findViewById(R.id.flightLayovers);
         final TextView flightPrice = findViewById(R.id.flightPrice);
 
