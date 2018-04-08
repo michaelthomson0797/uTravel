@@ -35,7 +35,7 @@ public class Details extends AppCompatActivity implements OnMapReadyCallback{
         //instantiate info textViews
         final TextView flightCodes = findViewById(R.id.flightCodes);
         final TextView flightTimeCodes = findViewById(R.id.flightTimeCodes);
-        final TextView flightAirline = findViewById(R.id.flightDuration);
+        final TextView flightAirline = findViewById(R.id.flightAirline);
         final TextView flightLayovers = findViewById(R.id.flightLayovers);
         final TextView flightPrice = findViewById(R.id.flightPrice);
 
@@ -44,17 +44,15 @@ public class Details extends AppCompatActivity implements OnMapReadyCallback{
         final TextView hotelPrice = findViewById(R.id.hotelPrice);
         final TextView hotelAddress = findViewById(R.id.hotelAddress);
 
-
-
         //instantiate map
         final MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
         // TODO: Get the trip info and update detail window
-        hotelAddress.setText("McMaster University"); //PLACEHOLDER
+        address = "Mcmaster University";//PLACEHOLDER
 
         //pull address of hotel from textView
-        address = hotelAddress.getText().toString();
+        hotelAddress.setText(address);
 
     }
 
@@ -77,7 +75,6 @@ public class Details extends AppCompatActivity implements OnMapReadyCallback{
             if (address == null) return null;
 
             Address position = address.get(0);
-
 
             p1 = new LatLng(position.getLatitude(), position.getLongitude());
         } catch (Exception e) {
