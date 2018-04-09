@@ -1,6 +1,7 @@
 package com.utravel;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.location.places.AutocompleteFilter;
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
@@ -74,11 +76,21 @@ public class Form extends AppCompatActivity {
                         tripStyleSpinner.getSelectedItem().toString(),
                         String.format("%d", distanceSeekbar.getProgress()*160));
 
-                Trip foundTrip = tripFinder.getTrip();
+                final Trip foundTrip = tripFinder.getTrip();
 
-                Intent resultsIntent = new Intent(Form.this, Details.class);
-                resultsIntent.putExtra("trip", foundTrip);
-                Form.this.startActivity(resultsIntent);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (foundTrip != null) {
+                            Intent resultsIntent = new Intent(Form.this, Details.class);
+                            resultsIntent.putExtra("trip", foundTrip);
+                            Form.this.startActivity(resultsIntent);
+                        } else {
+                            Toast toast = Toast.makeText(Form.this, "No trips found", Toast.LENGTH_LONG);
+                            toast.show();
+                        }
+                    }
+                }, 3000);
             }
         });
 

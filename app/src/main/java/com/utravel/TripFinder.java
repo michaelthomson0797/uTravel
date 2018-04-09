@@ -7,6 +7,7 @@ import com.opencsv.CSVReader;
 
 import java.io.FileReader;
 import java.io.InputStreamReader;
+import java.util.List;
 
 public class TripFinder {
     Context context;
@@ -35,11 +36,31 @@ public class TripFinder {
         try {
             CSVReader flightReader = new CSVReader(new InputStreamReader(context.getResources().openRawResource(R.raw.flights)));
             CSVReader hotelReader = new CSVReader(new InputStreamReader(context.getResources().openRawResource(R.raw.hotels)));
-            String[] flightLine = flightReader.readNext();
-            String[] hotelLine = hotelReader.readNext();
-            foundTrip = new Trip(flightLine[0], flightLine[1], flightLine[2], flightLine[3], flightLine[4], hotelLine[0], hotelLine[1], hotelLine[2], hotelLine[3]);
+            List flightList = flightReader.readAll();
+            List hotelList = hotelReader.readAll();
+
+            String[] bestFlight = null;
+            String[] bestHotel = null;
+            int bestCostDiff = Integer.MAX_VALUE;
+            for (int i = 0; i < flightList.size(); i++) {
+                String[] flightLine = (String[])flightList.get(i);
+                String[] hotelLine = (String[])hotelList.get(i);
+
+                Log.d("HOTELCONTENTS:", flightLine[0] + " " + hotelLine[0]);
+
+                int cost = Integer.parseInt(flightLine[4].substring(1)) + Integer.parseInt(hotelLine[2].substring(1)) * Integer.parseInt(tripDuration);
+                int budget = Integer.parseInt(this.budget);
+                if (budget-cost < bestCostDiff && budget-cost >= 0) {
+                    bestFlight = flightLine;
+                    bestHotel = hotelLine;
+                    bestCostDiff = budget-cost;
+                }
+            }
+
+            if (bestFlight == null) {return null;}
+
+            foundTrip = new Trip(bestFlight[0], bestFlight[1], bestFlight[2], bestFlight[3], bestFlight[4], bestHotel[0], bestHotel[1], bestHotel[2], bestHotel[3], bestHotel[4]);
         } catch (Exception e) {
-            Log.d("FUUUUUUUUUUUUUUUUUCK", "PLEEEEEEEEEEEEEASE");
             e.printStackTrace();
         }
 

@@ -34,6 +34,7 @@ public class Details extends AppCompatActivity implements OnMapReadyCallback{
     private String address;
     private String destinationCode;
     private Trip currentTrip;
+    private String location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,7 @@ public class Details extends AppCompatActivity implements OnMapReadyCallback{
         // TODO: Get the trip info and update detail window
         address = currentTrip.getHotelAddress();
         destinationCode = currentTrip.getFlightCode().substring(6);
+        location = currentTrip.getLocation();
 
         //pull values from found trip, send to UI
         hotelAddressTextView.setText(address);
@@ -77,13 +79,14 @@ public class Details extends AppCompatActivity implements OnMapReadyCallback{
         hotelNameTextView.setText(currentTrip.getHotelName());
         hotelScoreTextView.setText(currentTrip.getHotelScore());
         hotelPriceTextView.setText(currentTrip.getHotelPrice());
+        locationTextView.setText(currentTrip.getLocation());
 
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         LatLng hotelPosition = getLatLong(address);
-        LatLng flightPosition = getLatLong(destinationCode);
+        LatLng flightPosition = getLatLong("airport " + destinationCode);
         googleMap.addMarker(new MarkerOptions().position(hotelPosition));
         googleMap.addMarker(new MarkerOptions().position(flightPosition));
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(hotelPosition));
@@ -104,6 +107,7 @@ public class Details extends AppCompatActivity implements OnMapReadyCallback{
 
             p1 = new LatLng(position.getLatitude(), position.getLongitude());
         } catch (Exception e) {
+            Log.d("LOCATION NOT FOUND", strAddress);
             e.printStackTrace();
         }
         return p1;
@@ -122,7 +126,7 @@ public class Details extends AppCompatActivity implements OnMapReadyCallback{
         if (id == R.id.saveButton) {
             ObjectOutput out;
             try {
-                File outFile = new File(Environment.getExternalStorageDirectory() + File.separator + "uTravel", address + ".trip");
+                File outFile = new File(Environment.getExternalStorageDirectory() + File.separator + "uTravel",  location + ".trip");
                 out = new ObjectOutputStream(new FileOutputStream(outFile));
                 out.writeObject(currentTrip);
                 out.close();

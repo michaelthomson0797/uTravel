@@ -4,6 +4,8 @@ package com.utravel;
 import java.io.Serializable;
 
 public class Trip implements Serializable{
+    private  String location;
+
     //values for the flight
     private String flightCode;
     private String flightTimeCode;
@@ -19,7 +21,7 @@ public class Trip implements Serializable{
 
     public Trip(String flightCode, String flightTimeCode, String flightAirline,
                 String flightLayovers, String flightPrice, String hotelName, String hotelScore,
-                String hotelPrice, String hotelAddress) {
+                String hotelPrice, String hotelAddress, String location) {
         this.flightCode = flightCode;
         this.flightTimeCode = flightTimeCode;
         this.flightAirline = flightAirline;
@@ -29,6 +31,7 @@ public class Trip implements Serializable{
         this.hotelScore = hotelScore;
         this.hotelPrice = hotelPrice;
         this.hotelAddress = hotelAddress;
+        this.location = location;
     }
 
     public String getFlightCode() {
@@ -65,5 +68,9 @@ public class Trip implements Serializable{
 
     public String getHotelAddress() {
         return hotelAddress;
+    }
+
+    public String getLocation() {
+        return location;
     }
 }

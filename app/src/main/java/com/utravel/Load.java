@@ -63,7 +63,7 @@ public class Load extends AppCompatActivity {
                 files = new ArrayList<>(Arrays.asList(folder.listFiles()));
                 results = new ArrayList<>();
                 for (int i = 0; i < files.size(); i++) {
-                    results.add(files.get(0).getName());
+                    results.add(files.get(i).getName());
                 }
 
                 ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,
