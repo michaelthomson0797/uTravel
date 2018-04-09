@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.gms.location.places.AutocompleteFilter;
@@ -39,6 +41,7 @@ public class Form extends AppCompatActivity {
         final TextView distanceIndicator = findViewById(R.id.distanceIndicator);
         final Button submitButton = findViewById(R.id.submitButton);
         final Button loadButton = findViewById(R.id.loadButton);
+        final Spinner tripStyleSpinner = findViewById((R.id.styleSpinner));
         budgetEditText = findViewById(R.id.budgetEditText);
         departureDateEditText = findViewById(R.id.departureDate);
         tripDurationEditText = findViewById(R.id.tripDuration);
@@ -64,8 +67,17 @@ public class Form extends AppCompatActivity {
             public void onClick(View view) {
 
                 //TODO: Get Trip from Experts and send to Details using putExtras
+                TripFinder tripFinder = new TripFinder(Form.this, autocompleteFragment.toString(),
+                        departureDateEditText.getText().toString(),
+                        tripDurationEditText.getText().toString(),
+                        budgetEditText.getText().toString(),
+                        tripStyleSpinner.getSelectedItem().toString(),
+                        String.format("%d", distanceSeekbar.getProgress()*160));
+
+                Trip foundTrip = tripFinder.getTrip();
 
                 Intent resultsIntent = new Intent(Form.this, Details.class);
+                resultsIntent.putExtra("trip", foundTrip);
                 Form.this.startActivity(resultsIntent);
             }
         });
