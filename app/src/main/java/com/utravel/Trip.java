@@ -1,7 +1,9 @@
 package com.utravel;
 
 
-public class Trip {
+import java.io.Serializable;
+
+public class Trip implements Serializable{
     //values for the flight
     private String flightCode;
     private String flightTimeCode;
